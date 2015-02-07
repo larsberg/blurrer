@@ -9,12 +9,12 @@
 
 
 ofxBlurrer::ofxBlurrer() :
-bUpdateFbo(true),
-bIsSetup(false),
-numIterations(0),
-radius(5),
-brightness(1.02),
-bokehIterations(2)
+bUpdateFbo( true ),
+bIsSetup( false ),
+numIterations( 0 ),
+radius( 5 ),
+brightness( 1.02 ),
+bokehIterations( 2 )
 {}
 
 ofxBlurrer::~ofxBlurrer()
@@ -29,7 +29,7 @@ void ofxBlurrer::setup()
 	kernel = gaussianKernel(radius);
 	bIsSetup = true;
 	
-	radialGradient.loadImage("images/noise.jpg");
+	radialGradient.loadImage("images/Radial_gradient copy.jpg");// noise.jpg");
 	
 	radialGradient.resize(fbo1.getWidth(), fbo1.getHeight());
 }
@@ -118,9 +118,7 @@ void ofxBlurrer::bokeh(ofTexture& inputTexture)
 	
 	fbo2.begin();
 	bokehShader.begin();
-	bokehShader.setUniform1f("brightness", brightness);
 	bokehShader.setUniform1i("radius", radius);
-	bokehShader.setUniform1fv("gausKern", &kernel[0], kernel.size());
 	bokehShader.setUniform2f("direction", dir.x, dir.y);
 	bokehShader.setUniformTexture("map", inputTexture, 0);
 	bokehShader.setUniform2f("imgDim", inputTexture.getWidth(), inputTexture.getHeight());

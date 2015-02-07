@@ -4,13 +4,10 @@
 void ofApp::setup()
 {
 	
-	img.loadImage("images/street.jpg");
+	img.loadImage("images/street.jpg"); // MyFav.JPG" );//
 	img.resize(ofGetWidth(), ofGetHeight());
 	
 	blur.allocate(ofGetWidth(), ofGetHeight());
-	
-	
-
 }
 
 //--------------------------------------------------------------
