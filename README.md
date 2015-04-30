@@ -1,3 +1,3 @@
 # blurrer
 
-WIP! simple bluring addon
+WIP! simple bluring addon for openframeworks
